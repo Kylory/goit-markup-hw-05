@@ -124,6 +124,12 @@ a:visited {
   color: var(--blue-color);
 }
 
+.contacts-header,
+.benefits-text,
+.team-employee {
+  color: var(--text-color);
+}
+
 .nav-link,
 .contacts-header {
   font-weight: 500;
@@ -139,7 +145,7 @@ a:visited {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  fill: var(--text-color);
+  fill: currentColor;
 }
 
 /* Icons in contacts in header*/
@@ -179,14 +185,8 @@ a:visited {
 .contacts-header:hover,
 .contacts-header:focus {
   color: var(--blue-color);
-  fill: var(--blue-color);
 }
 
-.contacts-header,
-.benefits-text,
-.team-employee {
-  color: var(--text-color);
-}
 
 /* hero, footer background*/
 .footer {
