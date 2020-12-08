@@ -44,7 +44,12 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button class="order button" type="button">Заказать услугу</button>
+                <button data-modal-open class="order-button" type="button">Заказать услугу</button>
+                <div data-modal class="backdrop is-hidden">
+                    <div class="modal-window">
+                        <button class="button-close" data-modal-close type="button">X</button>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Переваги -->
@@ -370,5 +375,7 @@
             </div>
         </div>
     </footer>
+    <!-- Modal window script -->
+    <script src="./js/modal.js"></script>
 </body>
 </html>
