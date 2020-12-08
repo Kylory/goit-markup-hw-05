@@ -72,12 +72,17 @@ a:visited {
   font-style: normal;
 }
 
+/*root */
+
 /* colors */
 :root {
   --title-color: #212121;
   --white-color: #ffffff;
   --blue-color: #2196f3;
   --text-color: #757575;
+
+  /* Cubic */
+  --cubic-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* logo basic style*/
@@ -134,27 +139,18 @@ a:visited {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: color 250ms var(--cubic-function);
 }
 
 .contacts-header {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   fill: currentColor;
 }
 
 /* Decorative elements */
-/* Icons in contacts in header*/
-/* .contacts .item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
+/* Icons in contacts in header*/
 .icon-letter,
 .icon-smartphone {
   margin-right: 10px;
@@ -180,11 +176,6 @@ a:visited {
 .nav {
   align-items: center;
 }
-
-/* .links .item + .item,
-.contacts .item + .item {
-  margin-left: 50px;
-} */
 
 .links .item:not(:last-child),
 .contacts .item:not(:last-child) {
@@ -260,6 +251,8 @@ a:visited {
   line-height: 1.88;
   letter-spacing: 0.06em;
   color: var(--white-color);
+  transition: color 250ms var(--cubic-function),
+    background-color 250ms var(--cubic-function);
 }
 
 .order-button:hover,
@@ -267,12 +260,10 @@ a:visited {
   background-color: var(--white-color);
   color: black;
   cursor: pointer;
-  transition-duration: 250ms;
 }
 
 .order-button:active {
   background-color: var(--blue-color);
-  color: var(--white-color);
 }
 
 /* Modal window */
@@ -326,14 +317,12 @@ a:visited {
   justify-content: center;
   align-items: center;
 
-  margin: 0;
-  padding: 0;
+  transition: fill 250ms var(--cubic-function);
 }
 
 .button-close:hover,
 .button-close:focus {
   fill: var(--blue-color);
-  transition-duration: 250ms;
 }
 
 /* Benefits */
@@ -497,13 +486,14 @@ a:visited {
   height: 44px;
   border-radius: 50%;
   fill: #afb1b8;
+  transition: fill 250ms var(--cubic-function),
+    background-color 250ms var(--cubic-function);
 }
 
 .social-links a:hover,
 .social-links a:focus {
   background-color: var(--blue-color);
   fill: var(--white-color);
-  transition-duration: 250ms;
 }
 
 /* Клієнти */
@@ -531,13 +521,14 @@ a:visited {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   fill: #afb1b8;
+  transition: fill 250ms var(--cubic-function),
+    border-color 250ms var(--cubic-function);
 }
 
 .clients-list a:hover,
 .clients-list a:focus {
   fill: var(--blue-color);
   border-color: var(--blue-color);
-  transition-duration: 250ms;
 }
 
 /* footer */
@@ -570,12 +561,12 @@ a:visited {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   fill: var(--white-color);
+  transition: background-color 250ms var(--cubic-function);
 }
 
 .social-links-footer a:hover,
 .social-links-footer a:focus {
   background-color: var(--blue-color);
-  transition-duration: 250ms;
 }
 
 .location {
@@ -653,6 +644,8 @@ a:visited {
   cursor: pointer;
   border: transparent;
   border-radius: 4px;
+  transition: background-color 250ms var(--cubic-function),
+    color 250ms var(--cubic-function), box-shadow 250ms var(--cubic-function);
 }
 
 .portfolio-container .button:hover,
@@ -661,12 +654,9 @@ a:visited {
   color: var(--white-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  transition-duration: 250ms;
 }
 
 /* Cards */
-
 .portfolio-cards {
   flex-wrap: wrap;
 }
@@ -720,9 +710,17 @@ a:visited {
   border-left: 1px solid #ececec;
 }
 
-.portfolio-cards .item::before {
-  content: "Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов.";
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-cards .text {
+  content: "";
   position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
   width: 370px;
   height: 294px;
   font-weight: 400;
@@ -731,14 +729,12 @@ a:visited {
   letter-spacing: 0.03em;
 
   color: var(--white-color);
-  padding: 63px 24px;
   background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
 
-  opacity: 0;
+  transition: transform 250ms var(--cubic-function);
 }
 
-.portfolio-cards .item:hover::before,
-.portfolio-cards .item:focus::before {
-  opacity: 1;
-  transition-duration: 250ms;
+.portfolio-cards a:hover .text {
+  transform: translateY(0);
 }
