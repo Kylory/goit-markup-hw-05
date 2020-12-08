@@ -311,6 +311,20 @@ a:visited {
   background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  fill: currentColor;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+.button-close:hover {
+  fill: var(--blue-color);
 }
 
 /* Benefits */
